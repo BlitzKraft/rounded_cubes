@@ -7,8 +7,8 @@
 * Optionally, specify a rounding radius for each cube. Default is 5% of
   smallest dimension 
 * Skip rounding of top and bottom faces with `flat_tops` module
-* Creates rounded cubes exactly where the
 * `cube(x)` works with both `x` as a number and a vector
+* Use `$fn=4` for chamfered edges - works great with `flat_tops`, but will cause some shrinking in `z` for `round_cube`.  
 
 ## Usage
 
@@ -33,6 +33,6 @@ This results in the following output:
 
 ## Known issues
 
-* Rendering is not fast enough, even with `$fn=20`
 * When the radius is greater than half the minimum dimension of the cubes,
   silently defaults to 5% of the radius.
+* `$fn` value less than 10 can cause noticeable dimensional issues in `round_cube()` 
