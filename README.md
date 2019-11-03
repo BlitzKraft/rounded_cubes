@@ -34,3 +34,5 @@ This results in the following output:
 ## Known issues
 
 * Rendering is not fast enough, even with `$fn=20`
+* When the radius is greater than half the minimum dimension of the cubes,
+  silently defaults to 5% of the radius.
