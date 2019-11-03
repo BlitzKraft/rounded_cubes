@@ -8,6 +8,7 @@
   smallest dimension 
 * Skip rounding of top and bottom faces with `flat_tops` module
 * Creates rounded cubes exactly where the
+* `cube(x)` works with both `x` as a number and a vector
 
 ## Usage
 
@@ -32,5 +33,4 @@ This results in the following output:
 
 ## Known issues
 
-* Does not work with `cube(x)` syntax when `x` is not a vector
 * Rendering is not fast enough, even with `$fn=20`

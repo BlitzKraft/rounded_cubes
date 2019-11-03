@@ -1,5 +1,9 @@
 module round_cube(cube_dims, center=false, radius, $fn) {
+	cube_dims = is_num(cube_dims)? [cube_dims, cube_dims, cube_dims] : cube_dims;
 	computed_radius = min(cube_dims) * 0.05;
+	if (radius > min(cube_dims)/2) {
+		echo("WARNING: RADIUS GREATER THAN CUBE DIMS");
+	}
 	radius = (radius && radius <= min(cube_dims)/2)? radius : computed_radius;
 	cube_x = cube_dims[0] - 2 * radius;
 	cube_y = cube_dims[1] - 2 * radius;
@@ -30,6 +34,7 @@ module round_cube(cube_dims, center=false, radius, $fn) {
 }
 
 module flat_tops(cube_dims, center=false, radius, $fn) {
+	cube_dims = is_num(cube_dims)? [cube_dims, cube_dims, cube_dims] : cube_dims;
 	computed_radius = min(cube_dims) * 0.05;
 	radius = (radius && radius <= min(cube_dims)/2)? radius : computed_radius;
 	cube_x = cube_dims[0] - 2 * radius;
