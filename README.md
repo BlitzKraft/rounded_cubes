@@ -29,3 +29,8 @@ round_cube([10, 10, 10], radius=1, $fn=20);
 This results in the following output:
 
 ![cube, flat top cube, rounded cube](cubes.png)
+
+## Known issues
+
+* Does not work with `cube(x)` syntax when `x` is not a vector
+* Rendering is not fast enough, even with `$fn=20`
