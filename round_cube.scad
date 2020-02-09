@@ -52,3 +52,26 @@ module flat_tops(cube_dims, center=false, radius, $fn) {
 	}
 }
 
+module round_square(square_dims, center=false, radius, $fn) {
+	square_dims = is_num(square_dims)? [square_dims, square_dims] : square_dims;
+	computed_radius = min(square_dims) * 0.05;
+	radius = (radius && radius <= min(square_dims)/2)? radius : computed_radius;
+	square_x = square_dims[0] - 2 * radius;
+	square_y = square_dims[1] - 2 * radius;
+	echo(radius);
+	centering = center? 1 : 0;
+	tran = square_dims * -0.5 * centering;
+	echo(tran);
+	translate([radius, radius] + tran) {
+	hull() {
+		translate([0, 0])
+		circle(r=radius);
+		translate([square_x, 0])
+		circle(r=radius);
+		translate([0, square_y])
+		circle(r=radius);
+		translate([square_x, square_y])
+		circle(r=radius);
+	}
+	}
+}
