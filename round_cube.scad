@@ -58,10 +58,8 @@ module round_square(square_dims, center=false, radius, $fn) {
 	radius = (radius && radius <= min(square_dims)/2)? radius : computed_radius;
 	square_x = square_dims[0] - 2 * radius;
 	square_y = square_dims[1] - 2 * radius;
-	echo(radius);
 	centering = center? 1 : 0;
 	tran = square_dims * -0.5 * centering;
-	echo(tran);
 	translate([radius, radius] + tran) {
 	hull() {
 		translate([0, 0])
